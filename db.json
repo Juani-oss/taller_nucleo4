@@ -1,0 +1,22 @@
+{
+  "usuarios": [
+    {
+      "id": "admin",
+      "nombre": "Administrador",
+      "email": "admin@tienda.com",
+      "password": "8db1697902516ec2dc59fdd846f9a1ee238efd21c130bcda905010d26954b995",
+      "rol": "admin"
+    },
+    {
+      "id": "estandar",
+      "nombre": "Usuario",
+      "email": "usuario@tienda.com",
+      "password": "32ce53ea8efafb49e0eca7177995b88a2fe981438e6a5931e84be4d40e3fb6e9",
+      "rol": "estandar"
+    }
+  ],
+  "productos": [
+    { "id": "-OlOi9Ge4gsWjaT2yMiP", "nombre": "LAPTOP ASUS", "categoria": "Tecnologia", "marca": "", "precio": 12.5, "stock": 5 },
+    { "id": "-OlOoJta5Xa6dJ-yhnLx", "nombre": "", "categoria": "", "marca": "", "precio": null, "stock": null }
+  ]
+}

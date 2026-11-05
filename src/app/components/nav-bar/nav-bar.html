@@ -1,0 +1,38 @@
+<nav class="navbar navbar-expand-md bg-primary navbar-dark shadow-sm">
+  <div class="container">
+    <a class="navbar-brand fw-semibold" routerLink="/">Tienda de Computación</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="menu">
+      @if (sesion.autenticado()) {
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/catalogo" routerLinkActive="active">Catálogo</a>
+          </li>
+          @if (sesion.esAdmin()) {
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/panel" routerLinkActive="active">Panel</a>
+            </li>
+          }
+        </ul>
+        <div class="d-flex align-items-center gap-3">
+          <span class="navbar-text">
+            {{ sesion.usuario()?.email }}
+            <span class="badge text-bg-light ms-1">{{ sesion.esAdmin() ? "Administrador" : "Estándar" }}</span>
+          </span>
+          <button class="btn btn-outline-light btn-sm" type="button" (click)="cerrar()">Cerrar sesión</button>
+        </div>
+      } @else {
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login" routerLinkActive="active">Iniciar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/registro" routerLinkActive="active">Registro</a>
+          </li>
+        </ul>
+      }
+    </div>
+  </div>
+</nav>

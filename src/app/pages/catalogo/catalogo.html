@@ -1,0 +1,46 @@
+<div class="container py-4">
+    <h1 class="h3 mb-4">Catálogo de productos</h1>
+
+    @if (error()) {
+        <div class="alert alert-danger" role="alert">{{ error() }}</div>
+    }
+
+    <div class="card shadow-sm">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle mb-0">
+                <thead class="table-light">
+                    <tr>
+                        <th>Foto</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Marca</th>
+                        <th class="text-end">Precio</th>
+                        <th class="text-end">Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for (producto of productos(); track producto.id) {
+                        <tr>
+                            <td>
+                                @if (producto.imagen) {
+                                    <img class="img-thumbnail object-fit-contain" width="72" height="72" [src]="producto.imagen" [alt]="producto.nombre">
+                                } @else {
+                                    <span class="badge text-bg-secondary">Sin foto</span>
+                                }
+                            </td>
+                            <td>{{ producto.nombre }}</td>
+                            <td>{{ producto.categoria }}</td>
+                            <td>{{ producto.marca }}</td>
+                            <td class="text-end">{{ producto.precio | currency }}</td>
+                            <td class="text-end">{{ producto.stock }}</td>
+                        </tr>
+                    } @empty {
+                        <tr>
+                            <td class="text-center text-body-secondary py-4" colspan="6">No hay productos</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
